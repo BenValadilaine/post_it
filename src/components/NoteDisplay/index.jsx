@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Showdown from 'showdown';
-
 import './index.scss';
 import MarkdownInput from '../MarkdownInput';
 

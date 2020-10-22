@@ -6,7 +6,7 @@ const MarkdownInput = ({updateNote}) => {
   const [inputContent, setInputContent] = useState();
 
   const handleChange = (event) => {
-    if (event.target.id === "content"){
+    if (event.target.id === "inputContent"){
       setInputContent(event.target.value);
     } else {
       setInputTitle(event.target.value);

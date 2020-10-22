@@ -1,0 +1,13 @@
+button{
+  width: 150px;
+  height: 50px;
+  border: solid 1px darkolivegreen;
+  border-radius: 10px;
+  background-color: white;
+  color: darkslategray;
+
+  &:hover{
+    background-color: darkolivegreen;
+    color:white;
+  }
+}

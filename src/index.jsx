@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import './index.scss';
-// import List from './components/List';
 import NoteDisplay from './components/NoteDisplay';
-//import MarkdownInput from './components/MarkdownInput';
-
+import List from './components/List';
 
 const App = () => {
 
   return (
-    <NoteDisplay />
+    <section>
+      <NoteDisplay />
+      <List />
+    </section>
   )
 }
 
