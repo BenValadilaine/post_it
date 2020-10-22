@@ -1,33 +1,41 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './index.scss';
-//import NoteDisplay from '../NoteDisplay';
 
-const MarkdownInput = () => {
-  const [title, setTitle] = useState({});
-  const [content, setContent] = useState({});
+const MarkdownInput = ({updateNote}) => {
+  const [inputTitle, setInputTitle] = useState({});
+  const [inputContent, setInputContent] = useState({});
 
-  const handleTitle = (event) => {
-    console.log(event.target.value);
-    setTitle(event.target.value)}
-  const handleContent = (event) => {
-    console.log(event.target.value);
-    setContent(event.target.value)}
+  const handleChange = (event) => {
+    if (event.target.id === "content"){
+      console.log(event.target.value);
+      setInputContent(event.target.value);
+    } else {
+      console.log(event.target.value);
+      setInputTitle(event.target.value);
+    }
+    updateNote(inputTitle, inputContent);
+  }
 
   return (
-    <section>
-
-      <form className="noteForm">
-        <div>
-          <label>Titre</label>
-          <input type="text" id="inputTitle" placeholder="Titre de la note" onChange={handleTitle}/>
-        </div>
-        <div>
-          <input type="text" id="inputContent" placeholder="Contenu de la note" onChange={handleContent}/>
-        </div>
-        <button type="submit">Sauvegarder</button>
-      </form>
-    </section>
-  )
+    <form className="noteForm">
+      <div>
+        <label>Titre</label>
+        <input
+          type="text"
+          id="inputTitle"
+          placeholder="Titre de la note"
+          onChange={(event) => handleChange(event)}/>
+      </div>
+      <div>
+        <textarea
+          type="text"
+          id="inputContent"
+          placeholder="Contenu de la note"
+          onChange={(event) => handleChange(event)}/>
+      </div>
+      <button type="submit">Sauvegarder</button>
+    </form>
+  );
 }
 
 export default MarkdownInput;

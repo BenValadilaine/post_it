@@ -1,12 +1,28 @@
-import React, { Component, useState } from 'react';
-import './index.scss';
+import React, { useState } from 'react';
+import Showdown from 'showdown';
 
-const NoteDisplay = (title, content) => {
+import './index.scss';
+import MarkdownInput from '../MarkdownInput';
+
+const NoteDisplay = () => {
+  const [title, setTitle] = useState();
+  const [content, setContent] = useState();
+
+  const updateNote = (title, content) => {
+    const converter = new Showdown.Converter();
+    setTitle(title);
+    setContent(converter.makeHtml(content));
+  }
+
+  const createMarkup = (html) => {
+    return {__html: html };
+  }
 
   return (
     <section>
-      <h3>{title}</h3>
-      <p>{content}</p>
+      <h3 className="title">Titre : {title}</h3>
+      <p className="content" dangerouslySetInnerHTML={createMarkup(content)}/>
+      <MarkdownInput  updateNote={updateNote} />
     </section>
   )
 }
