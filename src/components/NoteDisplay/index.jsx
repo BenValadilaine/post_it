@@ -19,8 +19,6 @@ const NoteDisplay = () => {
 
   return (
     <section>
-      <h3 className="title">Titre : {title}</h3>
-      <p className="content" dangerouslySetInnerHTML={createMarkup(content)}/>
       <MarkdownInput updateNote={updateNote} />
     </section>
   )

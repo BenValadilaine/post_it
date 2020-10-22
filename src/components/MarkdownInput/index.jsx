@@ -15,8 +15,6 @@ const MarkdownInput = ({updateNote}) => {
 
   const save = (event) => {
     event.preventDefault();
-    console.log(inputTitle);
-    console.log(inputContent);
     localStorage.setItem(JSON.stringify(inputTitle), JSON.stringify(inputContent));
   }
 
@@ -27,7 +25,6 @@ const MarkdownInput = ({updateNote}) => {
   return (
     <form className="noteForm">
       <div>
-        <label>Titre</label>
         <input
           type="text"
           id="inputTitle"

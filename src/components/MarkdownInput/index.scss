@@ -1,18 +1,29 @@
-input{
-  font-family: monospace;
-  background-color: #f0f0f0;
-  border-radius: 3px;
-  width: 300px;
-}
-
 .noteForm{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
+
+
+  input{
+    font-family: monospace;
+    margin:10px;
+
+  }
+
+  textarea{
+    width: 300px;
+    height: 100px;
+    margin:10px;
+    font-family: monospace;
+
+
+  }
 
   button{
     width: 150px;
     height: 50px;
+    margin:10px;
     border: solid 1px darkgoldenrod;
     border-radius: 10px;
     background-color: white;

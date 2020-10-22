@@ -5,10 +5,15 @@ body{
 header{
   height: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+
+  h1{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 
   svg{
     height: 45px;

@@ -11,3 +11,12 @@ button{
     color:white;
   }
 }
+
+#list{
+  display: flex;
+  flex-direction: row;
+}
+
+.noteList{
+  margin-left: 15px;
+}
