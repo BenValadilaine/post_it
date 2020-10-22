@@ -1,20 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.scss';
 
 const MarkdownInput = ({updateNote}) => {
-  const [inputTitle, setInputTitle] = useState({});
-  const [inputContent, setInputContent] = useState({});
+  const [inputTitle, setInputTitle] = useState();
+  const [inputContent, setInputContent] = useState();
 
   const handleChange = (event) => {
     if (event.target.id === "content"){
-      console.log(event.target.value);
       setInputContent(event.target.value);
     } else {
-      console.log(event.target.value);
       setInputTitle(event.target.value);
     }
-    updateNote(inputTitle, inputContent);
   }
+
+  const save = (event) => {
+    event.preventDefault();
+    console.log(inputTitle);
+    console.log(inputContent);
+    localStorage.setItem(JSON.stringify(inputTitle), JSON.stringify(inputContent));
+  }
+
+  useEffect(()=> {
+    updateNote(inputTitle, inputContent);
+  }, [inputTitle, inputContent]);
 
   return (
     <form className="noteForm">
@@ -23,17 +31,19 @@ const MarkdownInput = ({updateNote}) => {
         <input
           type="text"
           id="inputTitle"
+          value={'' || inputTitle }
           placeholder="Titre de la note"
-          onChange={(event) => handleChange(event)}/>
+          onChange={handleChange}/>
       </div>
       <div>
         <textarea
           type="text"
           id="inputContent"
+          value={'' || inputContent }
           placeholder="Contenu de la note"
-          onChange={(event) => handleChange(event)}/>
+          onChange={handleChange}/>
       </div>
-      <button type="submit">Sauvegarder</button>
+      <button type="submit" onClick={save}>Sauvegarder</button>
     </form>
   );
 }
