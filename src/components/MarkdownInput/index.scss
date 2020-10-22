@@ -1,0 +1,25 @@
+input{
+  font-family: monospace;
+
+
+}
+
+.noteForm{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  button{
+    width: 150px;
+    height: 30px;
+    border: solid 1px darkgoldenrod;
+    border-radius: 10px;
+    background-color: white;
+    color: darkslategray;
+
+    &:hover{
+      background-color: darkgoldenrod;
+      color:white;
+    }
+  }
+}

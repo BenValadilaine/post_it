@@ -1,0 +1,10 @@
+body{
+  font-family: Helvetica, sans-serif;
+}
+
+
+button, input{
+  &:focus{
+    outline: none;
+  }
+}
